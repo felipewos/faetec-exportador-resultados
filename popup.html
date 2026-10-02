@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exportador FAETEC</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">
+        <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+        <span>FAETEC Planilhas</span>
+      </div>
+      <span class="badge" id="badge-version">v1.0</span>
+    </header>
+
+    <!-- Main Content -->
+    <main class="content">
+      <!-- Status Box: On Target Page -->
+      <div id="view-connected" class="view hidden">
+        <div class="status-card">
+          <div class="status-indicator online"></div>
+          <div class="status-details">
+            <span class="status-title">Página Detectada</span>
+            <span class="status-subtitle" id="txt-page-url">Processo Seletivo FAETEC</span>
+          </div>
+        </div>
+
+        <div class="filter-box">
+          <div class="filter-row">
+            <span class="filter-key">Cargo:</span>
+            <span class="filter-val" id="val-cargo">Carregando...</span>
+          </div>
+          <div class="filter-row">
+            <span class="filter-key">Disciplina:</span>
+            <span class="filter-val" id="val-disc">-</span>
+          </div>
+          <div class="filter-row">
+            <span class="filter-key">Região:</span>
+            <span class="filter-val" id="val-reg">-</span>
+          </div>
+        </div>
+
+        <div class="data-summary">
+          <div class="summary-item">
+            <span class="summary-num" id="num-rows">0</span>
+            <span class="summary-lbl">Candidatos na Página</span>
+          </div>
+          <div class="summary-item">
+            <span class="summary-num" id="num-pages">1</span>
+            <span class="summary-lbl">Página Atual</span>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button class="btn btn-full" id="btn-export-everything">
+            🌐 Exportar Edital Completo (Tudo)
+          </button>
+          <button class="btn btn-primary" id="btn-export-all">
+            🚀 Exportar Filtro Atual (Todas Páginas)
+          </button>
+          <button class="btn btn-secondary" id="btn-export-page">
+            📥 Exportar Página Atual
+          </button>
+        </div>
+
+        <div class="hint">
+          💡 <em>O botão de exportação também está disponível diretamente dentro da página, no canto inferior direito.</em>
+        </div>
+      </div>
+
+      <!-- Status Box: Not on Target Page -->
+      <div id="view-disconnected" class="view hidden">
+        <div class="disconnected-card">
+          <div class="disconnected-icon">🌐</div>
+          <h3>Página não detectada</h3>
+          <p>Esta extensão funciona na página de resultados de processos seletivos da FAETEC.</p>
+          <button class="btn btn-primary" id="btn-open-faetec">
+            Acessar Resultados FAETEC
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <span>Exportação direta para Excel (.xlsx)</span>
+    </footer>
+  </div>
+
+  <script src="xlsx.full.min.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

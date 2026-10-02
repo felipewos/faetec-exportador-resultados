@@ -1,0 +1,349 @@
+#faetec-exporter-widget {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 999999;
+  width: 380px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #1f2937;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(16, 124, 65, 0.25);
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15), 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+#faetec-exporter-widget .faetec-widget-body {
+  overflow-y: auto;
+  max-height: calc(90vh - 55px);
+}
+
+#faetec-exporter-widget.minimized {
+  width: auto;
+  border-radius: 30px;
+  box-shadow: 0 4px 15px rgba(16, 124, 65, 0.35);
+}
+
+#faetec-exporter-widget.minimized .faetec-widget-body {
+  display: none;
+}
+
+/* Cabeçalho */
+.faetec-widget-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: linear-gradient(135deg, #107c41, #1e8e4f);
+  color: #ffffff;
+  user-select: none;
+}
+
+.faetec-widget-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.2px;
+}
+
+.faetec-widget-title svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.faetec-widget-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.faetec-btn-icon {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: #ffffff;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  transition: background 0.15s ease;
+}
+
+.faetec-btn-icon:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+/* Corpo */
+.faetec-widget-body {
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Card de Status / Filtros */
+.faetec-filter-summary {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 12px;
+}
+
+.faetec-filter-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
+  color: #64748b;
+}
+
+.faetec-filter-item:last-child {
+  margin-bottom: 0;
+}
+
+.faetec-filter-item strong {
+  color: #1e293b;
+  max-width: 220px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: right;
+}
+
+.faetec-data-badge {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #eef7ee;
+  border: 1px solid #c7e8cb;
+  color: #136734;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.faetec-data-badge.empty {
+  background: #fffbeb;
+  border-color: #fef3c7;
+  color: #92400e;
+}
+
+.faetec-data-badge.action-needed {
+  background: #eff6ff;
+  border-color: #bfdbfe;
+  color: #1d4ed8;
+  font-weight: 600;
+}
+
+/* Botões de Ação */
+.faetec-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.faetec-btn-search {
+  background: linear-gradient(135deg, #0284c7, #0369a1);
+  color: #ffffff;
+  box-shadow: 0 2px 6px rgba(2, 132, 199, 0.35);
+  animation: pulse-search 2.5s infinite ease-in-out;
+}
+
+.faetec-btn-search:hover:not(:disabled) {
+  background: #0369a1;
+  box-shadow: 0 4px 10px rgba(2, 132, 199, 0.45);
+}
+
+@keyframes pulse-search {
+  0%, 100% {
+    box-shadow: 0 2px 6px rgba(2, 132, 199, 0.35);
+  }
+  50% {
+    box-shadow: 0 0 12px rgba(2, 132, 199, 0.65);
+  }
+}
+
+.faetec-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  border: none;
+  transition: all 0.15s ease-in-out;
+  text-decoration: none;
+}
+
+.faetec-btn-primary {
+  background: #107c41;
+  color: #ffffff;
+  box-shadow: 0 2px 5px rgba(16, 124, 65, 0.25);
+}
+
+.faetec-btn-primary:hover:not(:disabled) {
+  background: #0b6132;
+  box-shadow: 0 4px 10px rgba(16, 124, 65, 0.35);
+}
+
+.faetec-btn-secondary {
+  background: #f1f5f9;
+  color: #334155;
+  border: 1px solid #cbd5e1;
+}
+
+.faetec-btn-secondary:hover:not(:disabled) {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.faetec-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.faetec-btn-full {
+  background: linear-gradient(135deg, #065f46, #047857);
+  color: #ffffff;
+  box-shadow: 0 3px 8px rgba(4, 120, 87, 0.35);
+  font-weight: 700;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.faetec-btn-full:hover:not(:disabled) {
+  background: linear-gradient(135deg, #047857, #059669);
+  box-shadow: 0 4px 14px rgba(4, 120, 87, 0.45);
+}
+
+.faetec-btn-stop {
+  background: #f59e0b;
+  color: #ffffff;
+  border: none;
+  font-weight: 600;
+}
+
+.faetec-btn-stop:hover:not(:disabled) {
+  background: #d97706;
+}
+
+.faetec-section-divider {
+  height: 1px;
+  background: #e2e8f0;
+  margin: 4px 0;
+}
+
+/* Barra de Progresso */
+.faetec-progress-box {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 8px;
+  font-size: 12px;
+  color: #166534;
+}
+
+.faetec-progress-details {
+  font-size: 11px;
+  line-height: 1.45;
+  color: #14532d;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #bbf7d0;
+  margin-top: 4px;
+}
+
+.faetec-progress-actions {
+  display: flex;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.faetec-progress-actions button {
+  flex: 1;
+  font-size: 11px;
+  padding: 6px 8px;
+}
+
+.faetec-progress-bar-bg {
+  width: 100%;
+  height: 8px;
+  background: #dcfce7;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.faetec-progress-bar-fill {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #16a34a, #22c55e);
+  transition: width 0.2s ease;
+}
+
+/* Opções Avançadas */
+.faetec-options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 11px;
+  color: #64748b;
+  padding-top: 4px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.faetec-options select {
+  padding: 3px 6px;
+  font-size: 11px;
+  border-radius: 4px;
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  color: #334155;
+}
+
+/* Toast de Notificação */
+.faetec-toast {
+  position: fixed;
+  bottom: 90px;
+  right: 24px;
+  z-index: 1000000;
+  background: #1e293b;
+  color: #ffffff;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.2s ease;
+  pointer-events: none;
+}
+
+.faetec-toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}

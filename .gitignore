@@ -1,0 +1,10 @@
+# Logs e arquivos temporários
+*.log
+scratch/
+temp_*
+bundle_*
+scratch_bundle.js
+
+# Sistema operacional
+.DS_Store
+Thumbs.db

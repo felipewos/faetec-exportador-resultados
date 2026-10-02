@@ -1,0 +1,42 @@
+{
+  "manifest_version": 3,
+  "name": "FAETEC - Exportador de Resultados",
+  "version": "1.0.0",
+  "description": "Exporta resultados de processos seletivos da FAETEC diretamente para planilhas nativas do Excel (.xlsx).",
+  "permissions": [
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://processoseletivo.faetec.rj.gov.br/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    },
+    "default_title": "Exportador FAETEC"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://processoseletivo.faetec.rj.gov.br/*"
+      ],
+      "js": [
+        "xlsx.full.min.js",
+        "content.js"
+      ],
+      "css": [
+        "content.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}
